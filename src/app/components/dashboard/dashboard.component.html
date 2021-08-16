@@ -1,0 +1,3 @@
+<h1 class="mb-3" *ngIf="auth.user$ | async as user">
+  Welcome, <span [textContent]="user.nickname"></span>
+</h1>

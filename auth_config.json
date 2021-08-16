@@ -1,0 +1,8 @@
+{
+  "domain": "dev-td0tzpp5.us.auth0.com",
+  "clientId": "YPKNu1NUYDhw6ZSJCZ7leUbDTavF42S0",
+  "audience": "https://www.writerxl.com/api",
+  "apiUri": "http://localhost:3001",
+  "appUri": "http://localhost:4200",
+  "errorPath": "/error"
+}

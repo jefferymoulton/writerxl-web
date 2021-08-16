@@ -1,0 +1,22 @@
+$navbar-height: 75px;
+$rounded-icon-diameter: 45px;
+
+.navbar {
+  position: relative;
+  height: $navbar-height;
+}
+
+.navbar-brand {
+  height: 70px;
+}
+
+.navbar-header {
+  margin: 0 auto;
+  display: table;
+}
+
+.rounded-icon {
+  height: $rounded-icon-diameter;
+  width: $rounded-icon-diameter;
+  border-radius: 50%;
+}
