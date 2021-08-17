@@ -2,17 +2,13 @@ $navbar-height: 75px;
 $rounded-icon-diameter: 45px;
 
 .navbar {
+  background-color: #DDDDDD;
   position: relative;
   height: $navbar-height;
 }
 
 .navbar-brand {
   height: 70px;
-}
-
-.navbar-header {
-  margin: 0 auto;
-  display: table;
 }
 
 .rounded-icon {

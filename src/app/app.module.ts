@@ -14,6 +14,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 
 import { environment as env } from '../environments/environment';
 import { UserService } from "./services/user.service";
+import { FooterComponent } from './components/footer/footer.component';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -22,9 +24,11 @@ import { UserService } from "./services/user.service";
     DashboardComponent,
     NavBarComponent,
     ProfileComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     AuthModule.forRoot({
       ...env.auth,
