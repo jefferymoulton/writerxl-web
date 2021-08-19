@@ -23,11 +23,9 @@ export class UserService {
       )
   }
 
-  getUserByEmail(email: string): Observable<IUser | undefined> {
-    return this.getUsers()
-      .pipe(
-        map((users: IUser[]) => users.find(u => u.email === email))
-      )
+  getUserByEmail(email: string | undefined): Observable<IUser | undefined> {
+    const url = 'http://localhost:5000/api/user/email/' + email;
+    return this.http.get<IUser>(url);
   }
 
   private handleError(err: HttpErrorResponse): Observable<never> {
