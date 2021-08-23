@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'writerxl-web';
+  
+  // TODO: Do the user auth checking here.
 }
