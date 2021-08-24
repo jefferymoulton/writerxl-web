@@ -1,13 +1,14 @@
-import { Injectable } from '@angular/core';
-import { IUser } from "../models/user.model";
-import { Observable, throwError } from "rxjs";
-import { catchError, map, tap } from 'rxjs/operators';
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { Injectable, OnInit } from '@angular/core';
+import { WxlUser } from "../models/user.model";
+import { Observable } from "rxjs";
+import { HttpClient } from "@angular/common/http";
+import { AuthService } from "@auth0/auth0-angular";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  public user!: WxlUser;
 
   private userUrl = 'api/users.json';
 
@@ -15,32 +16,18 @@ export class UserService {
     private http: HttpClient
   ) { }
 
-  getUsers(): Observable<IUser[]> {
-    return this.http.get<IUser[]>(this.userUrl)
-      .pipe(
-        tap(data => console.log('All: ', JSON.stringify(data))),
-        catchError(this.handleError)
-      )
+  createUser(user: WxlUser): Observable<WxlUser> {
+    const url = 'http://localhost:5000/api/user';
+
+    console.log("Creating user from auth...");
+    console.log(user);
+
+    return this.http.post<WxlUser>(url, user);
   }
 
-  getUserByEmail(email: string | undefined): Observable<IUser | undefined> {
+  getUserByEmail(email: string | undefined): Observable<WxlUser> {
     const url = 'http://localhost:5000/api/user/email/' + email;
-    return this.http.get<IUser>(url);
-  }
-
-  private handleError(err: HttpErrorResponse): Observable<never> {
-    // in a real world app, we may send the server to some remote logging infrastructure
-    // instead of just logging it to the console
-    let errorMessage = '';
-    if (err.error instanceof ErrorEvent) {
-      // A client-side or network error occurred. Handle it accordingly.
-      errorMessage = `An error occurred: ${err.error.message}`;
-    } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong,
-      errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
-    }
-    console.error(errorMessage);
-    return throwError(errorMessage);
+    console.log("Getting user with email address: " + email);
+    return this.http.get<WxlUser>(url);
   }
 }
