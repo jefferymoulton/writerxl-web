@@ -19,15 +19,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.auth.user$.subscribe(authUser => {
       if (authUser !== null) {
-        console.log('Auth user found', authUser);
-
         this.userService.getUser(authUser?.email);
-      }
-    });
-
-    this.userService.user$.subscribe(user => {
-      if (user !== null) {
-        console.log('WriterXL user found.', user);
       }
     });
   }

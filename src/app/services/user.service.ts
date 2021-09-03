@@ -24,12 +24,10 @@ export class UserService {
     }
 
     const url = 'http://localhost:5000/api/user/email/' + email;
-    console.log("Getting user with email address: " + email);
 
     this.http.get<User>(url).subscribe({
       next: user => {
         if (user !== null) {
-          console.log("User found.", user);
           this.userSubject.next(user);
         }
       },
@@ -53,7 +51,7 @@ export class UserService {
           picture: authUser?.picture
         };
 
-        console.log("Retrieved authUser. Creating user...", authUser, req);
+        console.log("User was not found. Creating user based on auth user...", authUser, req);
 
         this.http.post<User>(url, req).subscribe(user => {
           if (user !== null) {
