@@ -62,41 +62,4 @@ export class UserService {
       }
     })
   }
-
-/*
-  getWriterXLUser(wxlUser: IUser) {
-    this.getUserByEmail(wxlUser.email).subscribe({
-      next: user => {
-        console.log("WriterXL user retrieved.", user);
-        console.log("WriterXL user name.", user.name);
-        this.userBehaviorSubject.next(user);
-      },
-      error: err => {
-        if (err.status === 404) {
-          console.log("WriterXL user does not exist. Creating user...");
-          this.createUser(wxlUser);
-        }
-      }
-    });
-  }
-
-  getUserByEmail(email: string | undefined): Observable<IUser> {
-    const url = 'http://localhost:5000/api/user/email/' + email;
-    console.log("Getting user with email address: " + email);
-
-    return this.http.get<IUser>(url);
-  }
-
-  createUser(user: IUser) {
-    const url = 'http://localhost:5000/api/user';
-
-    console.log("Creating user.", user);
-
-    this.http.post<IUser>(url, user).subscribe((user) => {
-      if (user !== null) {
-        this.userBehaviorSubject.next(user);
-      }
-    });
-  }
- */
 }
