@@ -1,6 +1,6 @@
-export class WxlUser {
-  email:      string | undefined;
-  name:       string | undefined;
-  nickname:   string | undefined;
-  picture:    string | undefined;
+export class User {
+  email: string;
+  name: string;
+  nickname: string;
+  picture: string;
 }

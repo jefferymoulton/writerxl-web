@@ -14,10 +14,10 @@
       <button class="btn nav-icon" type="button" routerLink="/app" *ngIf="(auth.isAuthenticated$ | async) === false">
         <fa-icon [icon]="faUser" size="lg"></fa-icon>
       </button>
-      <ul ngbNav #nav="ngbNav" class="navbar-nav mr-auto" *ngIf="(auth.isAuthenticated$ | async)">
+      <ul ngbNav #nav="ngbNav" class="navbar-nav mr-auto" *ngIf="userService.user$ | async as user">
         <li class="nav-item dropdown" ngbDropdown>
           <a class="nav-link dropdown-toggle" ngbDropdownToggle id="profileDropdown">
-            <img [src]="userService.user.picture" class="rounded-icon" [alt]="userService.user.nickname">
+            <img id="avatar" [src]="user.picture" class="rounded-icon" [alt]="user.name">
           </a>
           <div class="dropdown-menu" aria-labelledby="profileDropdown" ngbDropdownMenu>
             <a class="dropdown-item" routerLink="/app/profile">Profile</a>
@@ -25,6 +25,9 @@
           </div>
         </li>
       </ul>
+      <ng-template #loading>
+        Loading...
+      </ng-template>
     </div>
   </div>
 </nav>
