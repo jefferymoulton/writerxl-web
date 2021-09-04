@@ -1,8 +1,8 @@
-import { Component, ElementRef, Inject, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from "@auth0/auth0-angular";
 import { DOCUMENT } from "@angular/common";
-import { UserService } from "../../services/user.service";
+import { ProfileService } from "../../services/profile.service";
 
 @Component({
   selector: 'wxl-nav-bar',
@@ -14,7 +14,7 @@ export class NavBarComponent {
 
   constructor(
     public auth: AuthService,
-    public userService: UserService,
+    public profile: ProfileService,
     @Inject(DOCUMENT) private doc: Document
   ) { }
 
