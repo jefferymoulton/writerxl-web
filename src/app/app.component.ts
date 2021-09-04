@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "@auth0/auth0-angular";
-import { UserService } from "./services/user.service";
-import { User } from "./models/user.model";
+import { ProfileService } from "./services/profile.service";
 
 @Component({
   selector: 'wxl-root',
@@ -13,13 +12,13 @@ export class AppComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    private userService: UserService
+    private profile: ProfileService
   ) { }
 
   ngOnInit(): void {
     this.auth.user$.subscribe(authUser => {
       if (authUser !== null) {
-        this.userService.getUser(authUser?.email);
+        this.profile.getProfile(authUser?.email);
       }
     });
   }

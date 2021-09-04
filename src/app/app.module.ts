@@ -13,7 +13,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProfileComponent } from './components/profile/profile.component';
 
 import { environment as env } from '../environments/environment';
-import { UserService } from "./services/user.service";
+import { ProfileService } from "./services/profile.service";
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from "@angular/common/http";
 
@@ -40,7 +40,7 @@ import { HttpClientModule } from "@angular/common/http";
     FontAwesomeModule,
   ],
   providers: [
-    UserService,
+    ProfileService,
   ],
   bootstrap: [
     AppComponent
