@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Profile } from "../models/profile.model";
-import { Observable, Subject } from "rxjs";
+import { Observable, ReplaySubject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { AuthService } from "@auth0/auth0-angular";
 
@@ -9,7 +9,9 @@ import { AuthService } from "@auth0/auth0-angular";
 })
 export class ProfileService {
   profile$: Observable<Profile>;
-  private subject = new Subject<Profile>();
+  private subject = new ReplaySubject<Profile>();
+
+  profile?: Profile;
 
   constructor(
     private http: HttpClient,
@@ -28,6 +30,7 @@ export class ProfileService {
     this.http.get<Profile>(url).subscribe({
       next: profile => {
         if (profile !== null) {
+          this.profile = profile;
           this.subject.next(profile);
         }
       },
@@ -56,6 +59,8 @@ export class ProfileService {
         this.http.post<Profile>(url, req).subscribe(profile => {
           if (profile !== null) {
             console.log("Profile created.", profile);
+
+            this.profile = profile;
             this.subject.next(profile);
           }
         });

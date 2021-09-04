@@ -4,6 +4,14 @@
       <a class="navbar-header" [routerLink]="((auth.isAuthenticated$ | async) === false ? '/' : '/app')">
         <img src="assets/wxl-feather-full.svg" class="navbar-brand" alt="WriterXL Logo">
       </a>
+      <ul ngbNav #nav="ngbNav" class="navbar-nav mr-auto" *ngIf="(auth.isAuthenticated$ | async) === false">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/app">My Dashboard</a>
+        </li>
+      </ul>
       <ul ngbNav #nav="ngbNav" class="navbar-nav mr-auto" *ngIf="(auth.isAuthenticated$ | async)">
         <li class="nav-item">
           <a class="nav-link" routerLink="/app">Home</a>

@@ -11,3 +11,7 @@ $font-family-base:       $font-family-sans-serif !default;
 body {
   font-family: $font-family-base;
 }
+
+.img-rounded {
+  border-radius: 50%;
+}
