@@ -7,25 +7,22 @@ import { AuthModule } from "@auth0/auth0-angular";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { WelcomeComponent } from './components/welcome/welcome.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ProfileComponent } from './components/profile/profile.component';
 
 import { environment as env } from '../environments/environment';
-import { ProfileService } from "./services/profile.service";
-import { FooterComponent } from './components/footer/footer.component';
+import { ProfileService } from "./shared/services/profile.service";
+import { FooterComponent } from './shared/footer/footer.component';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
-import { ToastComponent } from './components/toast/toast.component';
+import { ToastComponent } from './shared/toast/toast.component';
+import { UserAreaModule } from "./user-area/user-area.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    DashboardComponent,
     NavBarComponent,
-    ProfileComponent,
     FooterComponent,
     ToastComponent,
   ],
@@ -42,6 +39,7 @@ import { ToastComponent } from './components/toast/toast.component';
     FormsModule,
     HttpClientModule,
     NgbModule,
+    UserAreaModule,
   ],
   providers: [
     ProfileService,

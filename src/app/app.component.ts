@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "@auth0/auth0-angular";
-import { ProfileService } from "./services/profile.service";
+import { ProfileService } from "./shared/services/profile.service";
 
 @Component({
   selector: 'wxl-root',
