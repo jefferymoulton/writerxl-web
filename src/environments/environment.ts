@@ -15,6 +15,7 @@ const { domain, clientId, audience, apiUri, errorPath } = config as {
 
 export const environment = {
   production: false,
+  API_URL: 'http://localhost:5000/api',
   auth: {
     domain,
     clientId,

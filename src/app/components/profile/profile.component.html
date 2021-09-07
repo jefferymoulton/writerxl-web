@@ -1,3 +1,37 @@
 <div class="container">
-  Profile Page
+  <div class="row">
+    <div class="col-2">
+      <img [src]="profile.picture" class="img-rounded img-fluid" alt="Profile image">
+    </div>
+    <div class="col-10">
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <div>
+          <span [textContent]="profile.email" id="email"></span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" class="form-control" [(ngModel)]="profile.name">
+      </div>
+      <div class="form-group">
+        <label for="nickname">Nickname</label>
+        <input type="text" id="nickname" class="form-control" [(ngModel)]="profile.nickname">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" class="form-control" rows="5" [(ngModel)]="profile.description"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="row float-right">
+    <button type="button" class="btn btn-primary" (click)="saveProfile()">Save</button>
+  </div>
 </div>
+
+<ng-template #loading>
+  <div class="container">
+    Loading...
+  </div>
+</ng-template>
+
