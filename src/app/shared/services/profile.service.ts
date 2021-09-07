@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Profile } from "../models/profile.model";
+import { Profile } from "../../models/profile.model";
 import { Observable, ReplaySubject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { AuthService } from "@auth0/auth0-angular";
-import { environment } from "../../environments/environment";
+import { environment } from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
