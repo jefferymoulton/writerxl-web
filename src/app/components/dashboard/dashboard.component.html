@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="mb-3" *ngIf="auth.user$ | async as user">
-    Welcome, <span [textContent]="user.nickname"></span>
+  <h1 class="mb-3" *ngIf="profileService.profile$ | async as profile">
+    Welcome<span *ngIf="!profileService.firstLogin"> back</span>, <span [textContent]="profile.nickname"></span>
   </h1>
 </div>

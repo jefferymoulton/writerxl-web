@@ -16,6 +16,8 @@ import { environment as env } from '../environments/environment';
 import { ProfileService } from "./services/profile.service";
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
+import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -25,10 +27,9 @@ import { HttpClientModule } from "@angular/common/http";
     NavBarComponent,
     ProfileComponent,
     FooterComponent,
+    ToastComponent,
   ],
   imports: [
-    BrowserModule,
-    HttpClientModule,
     AppRoutingModule,
     AuthModule.forRoot({
       ...env.auth,
@@ -36,8 +37,11 @@ import { HttpClientModule } from "@angular/common/http";
         ...env.httpInterceptor
       }
     }),
-    NgbModule,
+    BrowserModule,
     FontAwesomeModule,
+    FormsModule,
+    HttpClientModule,
+    NgbModule,
   ],
   providers: [
     ProfileService,
