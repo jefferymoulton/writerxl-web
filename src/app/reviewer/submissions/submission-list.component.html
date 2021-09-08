@@ -1,0 +1,39 @@
+<ng-template #submissionForm let-modal>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Submit a new story</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="title">What is the title of your story?</label>
+        <input type="text" id="title" class="form-control" [(ngModel)]="submission.title">
+      </div>
+      <div class="form-group">
+        <label for="description">Describe your story in a few sentences.</label>
+        <textarea id="description" class="form-control" [(ngModel)]="submission.description"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="text">Paste the text of your story here:</label>
+        <textarea id="text" class="form-control" rows="20" cols="250" [(ngModel)]="submission.text"></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Close</button>
+      <button type="submit" class="btn btn-primary" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </div>
+</ng-template>
+
+<div>
+  <h3>Reviewer</h3>
+  <div class>
+    <button class="btn float-right" type="button" (click)="open(submissionForm)">
+      <fa-icon [icon]="faPlusCircle" size="3x"></fa-icon>
+    </button>
+  </div>
+</div>
+
+
