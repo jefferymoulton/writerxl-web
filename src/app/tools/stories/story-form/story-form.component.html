@@ -1,1 +1,18 @@
-<p>story-form works!</p>
+<div>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" id="title" class="form-control" [(ngModel)]="story.title" placeholder="My Amazing Story">
+  </div>
+  <div class="form-group">
+    <label for="description">Quick description</label>
+    <textarea id="description" class="form-control" [(ngModel)]="story.description"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="text">Paste the text of your story.</label>
+    <textarea id="text" class="form-control" [(ngModel)]="story.text" rows="15"></textarea>
+  </div>
+  <div class="form-group text-right">
+    <button type="button" class="btn btn-outline-dark">Close</button>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </div>
+</div>

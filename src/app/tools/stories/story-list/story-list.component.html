@@ -1,8 +1,20 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Tell us a little about your story</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <wxl-story-form></wxl-story-form>
+  </div>
+</ng-template>
+
 <div>
   <h3>Your stories</h3>
   <div class="text-right">
     <button type="button" class="btn">
-      <fa-icon [icon]="faPlusCircle" size="2x"></fa-icon>
+      <fa-icon [icon]="faPlusCircle" size="2x" (click)="open(content)"></fa-icon>
     </button>
   </div>
 </div>
