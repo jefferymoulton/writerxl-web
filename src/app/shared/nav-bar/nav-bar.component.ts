@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from "@auth0/auth0-angular";
 import { DOCUMENT } from "@angular/common";
-import { ProfileService } from "../services/profile.service";
+import { ProfileService } from "../profile.service";
 
 @Component({
   selector: 'wxl-nav-bar',

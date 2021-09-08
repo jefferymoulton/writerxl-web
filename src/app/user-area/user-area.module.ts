@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { ProfileComponent } from "./profile/profile.component";
-import { SharedModule } from "../shared/shared.module";
+import { ReviewerModule } from "../reviewer/reviewer.module";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { SharedModule } from "../shared/shared.module";
   ],
   imports: [
     CommonModule,
-    SharedModule
+    ReviewerModule,
+    FormsModule,
   ]
 })
 export class UserAreaModule { }
