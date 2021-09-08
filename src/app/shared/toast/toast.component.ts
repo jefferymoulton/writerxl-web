@@ -1,5 +1,5 @@
 import {Component, TemplateRef} from '@angular/core';
-import { ToastService } from "./toast.service";
+import { ToastService } from "../services/toast.service";
 
 @Component({
   selector: 'app-toasts',
@@ -10,7 +10,7 @@ import { ToastService } from "./toast.service";
       [class]="toast.classname"
       [autohide]="toast.autohide"
       [delay]="toast.delay || 5000"
-      (hidden)="toastService.remove(toast)"
+      (hide)="toastService.remove(toast)"
     >
       <ng-template [ngIf]="isTemplate(toast)" [ngIfElse]="text">
         <ng-template [ngTemplateOutlet]="toast.textOrTpl"></ng-template>

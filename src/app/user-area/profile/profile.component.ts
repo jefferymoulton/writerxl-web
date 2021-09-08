@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ProfileService } from "../../shared/profile.service";
+import { ProfileService } from "../../shared/services/profile.service";
 import { Profile } from "../../models/profile.model";
-import { ToastService } from "../../shared/toast/toast.service";
+import { ToastService } from "../../shared/services/toast.service";
 
 @Component({
   selector: 'app-profile',
