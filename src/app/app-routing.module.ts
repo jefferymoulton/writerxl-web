@@ -1,26 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { WelcomeComponent } from "./components/welcome/welcome.component";
-import { DashboardComponent } from "./user-area/dashboard/dashboard.component";
+import { WelcomeComponent } from "./public/welcome/welcome.component";
+import { DashboardComponent } from "./secured/dashboard/dashboard.component";
 import { AuthGuard } from "@auth0/auth0-angular";
-import { ProfileComponent } from "./user-area/profile/profile.component";
+import { ProfileComponent } from "./secured/profile/profile.component";
+import { AboutComponent } from "./public/about/about.component";
 
 const routes: Routes = [
   {
     path: 'app/profile',
     component: ProfileComponent,
     canActivate: [ AuthGuard ],
-
   },
   {
     path: 'app',
     component: DashboardComponent,
-    canActivate: [ AuthGuard ]
+    canActivate: [ AuthGuard ],
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
   },
   {
     path: '',
     component: WelcomeComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
 ];
 

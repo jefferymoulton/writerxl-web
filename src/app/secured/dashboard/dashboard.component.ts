@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileService } from "../../shared/services/profile.service";
+import { ProfileService } from "../../shared/profile/profile.service";
 
 @Component({
   selector: 'app-dashboard',

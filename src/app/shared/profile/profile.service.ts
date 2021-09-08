@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Profile } from "../../models/profile.model";
+import { Profile } from "./profile.model";
 import { Observable, ReplaySubject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { AuthService } from "@auth0/auth0-angular";

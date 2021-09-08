@@ -9,7 +9,10 @@
           <a class="nav-link" routerLink="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/app">My Dashboard</a>
+          <a class="nav-link" routerLink="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/app">Dashboard</a>
         </li>
       </ul>
       <ul ngbNav #nav="ngbNav" class="navbar-nav mr-auto" *ngIf="(auth.isAuthenticated$ | async)">
@@ -19,23 +22,28 @@
       </ul>
     </div>
     <div class="navbar-profile">
-      <button class="btn nav-icon" type="button" routerLink="/app" *ngIf="(auth.isAuthenticated$ | async) === false">
-        <fa-icon [icon]="faUser" size="lg"></fa-icon>
-      </button>
+      <ul ngbNav #nav="ngbNav" class="navbar-nav mr-auto" *ngIf="!(auth.isAuthenticated$ | async)">
+        <li class="nav-item dropdown" ngbDropdown>
+          <a class="nav-link dropdown-toggle" ngbDropdownToggle id="avatarDropdown">
+            <fa-icon [icon]="faUser" size="lg"></fa-icon>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="avatarDropdown" ngbDropdownMenu>
+            <a class="dropdown-item" routerLink="/app">Login</a>
+          </div>
+        </li>
+      </ul>
+
       <ul ngbNav #nav="ngbNav" class="navbar-nav mr-auto" *ngIf="profile.profile$ | async as profile">
         <li class="nav-item dropdown" ngbDropdown>
-          <a class="nav-link dropdown-toggle" ngbDropdownToggle id="profileDropdown">
+          <a class="nav-link dropdown-toggle" ngbDropdownToggle id="userDropdown">
             <img id="avatar" [src]="profile.picture" class="rounded-icon" [alt]="profile.name">
           </a>
-          <div class="dropdown-menu" aria-labelledby="profileDropdown" ngbDropdownMenu>
+          <div class="dropdown-menu" aria-labelledby="userDropdown" ngbDropdownMenu>
             <a class="dropdown-item" routerLink="/app/profile">Profile</a>
             <a class="dropdown-item" (click)="logout()">Logout</a>
           </div>
         </li>
       </ul>
-      <ng-template #loading>
-        Loading...
-      </ng-template>
     </div>
   </div>
 </nav>
