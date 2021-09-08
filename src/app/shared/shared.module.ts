@@ -28,6 +28,7 @@ import { AppRoutingModule } from "../app-routing.module";
   ],
   exports: [
     CommonModule,
+    FontAwesomeModule,
     FormsModule,
     FooterComponent,
     NavBarComponent,

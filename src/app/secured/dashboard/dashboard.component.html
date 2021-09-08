@@ -2,4 +2,10 @@
   <h1 class="mb-3" *ngIf="profileService.profile$ | async as profile">
     Welcome<span *ngIf="!profileService.firstLogin"> back</span>, <span [textContent]="profile.nickname"></span>
   </h1>
+
+  <div class="row">
+    <div class="col-6">
+      <wxl-story-list></wxl-story-list>
+    </div>
+  </div>
 </div>
