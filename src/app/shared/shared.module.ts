@@ -9,12 +9,14 @@ import { FooterComponent } from "./footer/footer.component";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { ProfileService } from "./profile/profile.service";
 import { AppRoutingModule } from "../app-routing.module";
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
     FooterComponent,
     NavBarComponent,
     ToastComponent,
+    ModalComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -32,6 +34,7 @@ import { AppRoutingModule } from "../app-routing.module";
     FormsModule,
     FooterComponent,
     NavBarComponent,
+    NgbModule,
     ToastComponent,
   ]
 })
