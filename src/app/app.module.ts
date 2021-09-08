@@ -6,25 +6,17 @@ import { AppComponent } from './app.component';
 import { AuthModule } from "@auth0/auth0-angular";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { WelcomeComponent } from './components/welcome/welcome.component';
-import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
 import { environment as env } from '../environments/environment';
-import { ProfileService } from "./shared/services/profile.service";
-import { FooterComponent } from './shared/footer/footer.component';
+import { ProfileService } from "./shared/profile/profile.service";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
-import { ToastComponent } from './shared/toast/toast.component';
-import { UserAreaModule } from "./user-area/user-area.module";
+import { SecuredModule } from "./secured/secured.module";
+import { PublicModule } from "./public/public.module";
+import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent,
-    NavBarComponent,
-    FooterComponent,
-    ToastComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -35,11 +27,12 @@ import { UserAreaModule } from "./user-area/user-area.module";
       }
     }),
     BrowserModule,
-    FontAwesomeModule,
     FormsModule,
     HttpClientModule,
     NgbModule,
-    UserAreaModule,
+    PublicModule,
+    SecuredModule,
+    SharedModule,
   ],
   providers: [
     ProfileService,
